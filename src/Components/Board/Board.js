@@ -22,12 +22,8 @@ const Board = () => {
             [2, 4, 6]
         ]
 
-        for (let i = 0; i < winningCombinations.length; i++) {
-            const [p1, p2, p3] = winningCombinations[i]
-            if (board[p1] !== '' && board[p1] === board[p2] && board[p2] === board[p3]) {
-                return board[p1]
-            }
-        }
+        const gameWinner = winningCombinations.find(([p1, p2, p3]) => board[p1] !== '' && board[p1] === board[p2] && board[p2] === board[p3])
+        return gameWinner && board[gameWinner[0]]
     }
 
     const checkTie = () => {
